@@ -1,0 +1,51 @@
+[
+    {
+      "inputShape": [28, 28, 1],
+      "outputShape": [10],
+      "name": "MNIST Classifier",
+      "description": "A convolutional neural network for classifying handwritten digits from the MNIST dataset",
+      "author": "John Doe",
+      "projectName": "Digit Recognition Project",
+      "architectureName": "LeNet-5",
+      "architectureVersion": "1.0",
+      "architectureDescription": "A classic convolutional neural network architecture",
+      "totalParams": 61706,
+      "modelSize": "245 KB",
+      "hyperparameters": { "learningRate": "0.001", "batchSize": "64" },
+      "architectureImage": "lenet5.png",
+      "taskNature": "classification multi-class"
+    },
+    {
+      "inputShape": [224, 224, 3],
+      "outputShape": [1],
+      "name": "Cat vs Dog Classifier",
+      "description": "A deep convolutional neural network for classifying images as either cats or dogs",
+      "author": "Jane Smith",
+      "projectName": "Pet Recognition Project",
+      "architectureName": "VGG-16",
+      "architectureVersion": "2.0",
+      "architectureDescription": "A deep neural network architecture with 16 layers",
+      "totalParams": 138357544,
+      "modelSize": "528 MB",
+      "hyperparameters": { "learningRate": "0.0001", "batchSize": "32" },
+      "architectureImage": "vgg16.png",
+      "taskNature": "classification binaire"
+    },
+    {
+      "inputShape": [32, 32, 3],
+      "outputShape": [10],
+      "name": "CIFAR-10 Classifier",
+      "description": "A convolutional neural network for classifying images from the CIFAR-10 dataset",
+      "author": "Alice Johnson",
+      "projectName": "Image Recognition Project",
+      "architectureName": "ResNet-18",
+      "architectureVersion": "3.0",
+      "architectureDescription": "A residual neural network architecture with 18 layers",
+      "totalParams": 11689512,
+      "modelSize": "44 MB",
+      "hyperparameters": { "learningRate": "0.0005", "batchSize": "128" },
+      "architectureImage": "resnet18.png",
+      "taskNature": "classification multi-class"
+    }
+  ]
+  
