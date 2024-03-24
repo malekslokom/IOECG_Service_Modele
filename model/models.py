@@ -1,11 +1,12 @@
 from enum import Enum
 from flask_sqlalchemy import SQLAlchemy
-from database.db import db
+from sqlalchemy import CheckConstraint
+db = SQLAlchemy()
 
-class TaskNature(Enum):
-    BINARY_CLASSIFICATION = 'classification binaire'
-    MULTI_CLASS_CLASSIFICATION = 'classification multi-class'
-    REGRESSION = 'regression'
+# class TaskNature(Enum):
+#     BINARY_CLASSIFICATION = 'classification binaire'
+#     MULTI_CLASS_CLASSIFICATION = 'classification multi-class'
+#     REGRESSION = 'regression'
 
 class Model(db.Model):
     __tablename__ = 'models'
@@ -22,4 +23,7 @@ class Model(db.Model):
     model_size = db.Column(db.String(50))
     batch_size = db.Column(db.Integer)
     learning_rate = db.Column(db.Float)
-    task_nature = db.Column(db.Enum(TaskNature))
+    task_nature = db.Column(db.String(50))
+    __table_args__ = (
+        CheckConstraint(task_nature.in_(['classification binaire', 'classification multi-class','régression']), name='check_task_nature'),
+    )
