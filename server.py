@@ -5,7 +5,7 @@ from flask_cors import CORS
 from enum import Enum
 from config.config import Config
 
-from api import getAll,health
+from api import getAll,health,getModelsWithFilter
 
 app = Flask(__name__)
 CORS(app)
@@ -42,6 +42,7 @@ db.init_app(app)
 # Définition de la route pour récupérer les modèles
 app.route('/api/models/health')(health)
 app.route('/api/models/',methods=["GET"])(getAll)
+app.route('/api/models/filter', methods=["GET"])(getModelsWithFilter)
 
 if __name__ == "__main__":
     register_service_with_consul() 
