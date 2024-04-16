@@ -35,14 +35,15 @@ def getModelsWithFilter():
     query = Model.query
     if search_term:
          query = query.filter((Model.author.ilike(f'%{search_term}%')) |
+                              (Model.name.ilike(f'%{search_term}%')) |
                              (Model.description.ilike(f'%{search_term}%')) |
                              (Model.project_name.ilike(f'%{search_term}%')) |
                              (Model.architecture_name.ilike(f'%{search_term}%')) )
 
     if name_model:
-        query = query.filter(Model.author.ilike(f'%{name_model}%'))
+        query = query.filter(Model.name.ilike(f'%{name_model}%'))
     if task_nature:
-        query = query.filter((Model.name.ilike(f'%{task_nature}%')))
+        query = query.filter((Model.task_nature.ilike(f'%{task_nature}%')))
 
     # Exécution de la requête et récupération des résultats
     filtered_models = query.all()
