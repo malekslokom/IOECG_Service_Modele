@@ -1,8 +1,8 @@
 from flask import jsonify, request
 from model.models import Model
 import torch
-from tdp_net import TdPNet,ModelArgs
-import numpy as np
+#from tdp_net import TdPNet,ModelArgs
+#import numpy as np
 
 def health():
     return jsonify({"status": "up"})
@@ -73,17 +73,17 @@ def getModelsWithFilter():
         return jsonify({"error": "No models found matching the criteria"}), 404
 
 
-def evaluate_model():
-    checkpoint_file='checkpoint-epoch=17-valid_loss=0.03.ckpt'
-    checkpoint= torch.load(checkpoint_file, map_location=torch.device('cpu'))
-    model_weights= checkpoint["state_dict"]
-    for key in list(model_weights):
-        model_weights[key.replace("model.","")]=model_weights.pop(key)
-    model= TdPNet(ModelArgs(**checkpoint["hyper_parameters"]["model_args"]))
+# def evaluate_model():
+#     checkpoint_file='checkpoint-epoch=17-valid_loss=0.03.ckpt'
+#     checkpoint= torch.load(checkpoint_file, map_location=torch.device('cpu'))
+#     model_weights= checkpoint["state_dict"]
+#     for key in list(model_weights):
+#         model_weights[key.replace("model.","")]=model_weights.pop(key)
+#     model= TdPNet(ModelArgs(**checkpoint["hyper_parameters"]["model_args"]))
    
     
-    for k in ["loss_fn.loss_function.pos_weight",]:
-        if k in model_weights:
-            del model_weights[k]
-    print(model.load_state_dict(model_weights))
-    model.eval()
+#     for k in ["loss_fn.loss_function.pos_weight",]:
+#         if k in model_weights:
+#             del model_weights[k]
+#     print(model.load_state_dict(model_weights))
+#     model.eval()

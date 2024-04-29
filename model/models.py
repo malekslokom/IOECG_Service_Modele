@@ -9,7 +9,7 @@ db = SQLAlchemy()
 #     REGRESSION = 'regression'
 
 class Model(db.Model):
-    __tablename__ = 'models'
+    __tablename__ = 'modeles'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
